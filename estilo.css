@@ -59,12 +59,13 @@ main {
     margin-bottom: 35px;
 }
 
-.card {
+.card-body {
     color: #000;
-    text-aling: center;
+    text-align: center;
 }
 
-.card small {
+.card small a {
     color: #999;
     font-weight: bold;
+    text-decoration: none;    
 }
