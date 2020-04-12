@@ -61,13 +61,10 @@ main {
 
 .card {
     color: #000;
-}
-
-.card h5, .card p:first {
     text-aling: center;
 }
 
-.card span {
+.card small {
     color: #999;
     font-weight: bold;
 }
