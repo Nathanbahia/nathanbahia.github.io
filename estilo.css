@@ -58,3 +58,12 @@ main {
 .espaco {
     margin-bottom: 35px;
 }
+
+.card {
+    color: #000;
+}
+
+.card span {
+    color: #999;
+    font-weight: bold;
+}
