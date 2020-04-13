@@ -119,19 +119,20 @@ main {
         min-height: 100vh;
         background-size: cover;
         background-position: right center;
-        padding: 5rem 1rem;
-        color: black;    
+        padding: 5rem 1rem;           
         text-align: center;        
     }
 
     .jumbotron h1 {
-        margin-top: 6rem;
+        margin-top: 2rem;
+        color: black; 
     }
 
     .jumbotron p {
         font-size: 1rem; 
         font-weight: bold;
         padding-top: .5rem;
+        color: #fff;
     }
 
     .lgScreen {
@@ -140,5 +141,8 @@ main {
 
     .smScreen {
         display: block;
+        position: absolute;
+        width: 100%;
+        top: 1rem;        
     }
 }
