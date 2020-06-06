@@ -3,7 +3,7 @@
 <head>
     <title>Nathan Bahia</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Nathan Batista de Assis Bahia">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -12,51 +12,12 @@
 </head>
 <body>
     
-    <header>
-        <nav class="navbar smScreen">
-            <ul class="">
-                <li class="">
-                    <a class="btn btn-outline-secondary" href="#perfil">Home</a>
-                </li>
-                <li class="">
-                    <a class="btn btn-outline-secondary" href="#portfolio">Portfólio</a>
-                </li>
-                <li class="">
-                    <a class="btn btn-outline-secondary" href="#contato">Contato</a>
-                </li>
-            </ul>
-        </nav>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top lgScreen">
-            <div class="row">
-                <div class="col-lg-8 mx-0 px-0">
-                    <div class="row">
-                        <div class="col-10 col-lg-8">
-                            <a class="navbar-brand d-none d-md-flex" href="#">Nathan Batista de Assis Bahia</a>
-                            <a class="navbar-brand d-md-none d-sm-flex" href="#">Nathan Bahia</a>
-                        </div>
-                        <div class="col-2 col-lg-4 d-flex justify-content-end mx-0 px-0">
-                            <button class="navbar-toggler btn-sm" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 px-0">
-                    <div class="collapse navbar-collapse mr-4" id="navbarNav">
-                        <ul class="navbar-nav text-right d-flex justify-content-end" style="width: 100%;">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#perfil">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#portfolio">Portfólio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contato">Contato</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <header id="perfil">
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="row">          
+                <a class="btn btn-outline-secondary col-3" href="#perfil">Home</a>
+                <a class="btn btn-outline-secondary col-4 offset-1" href="#portfolio">Portfólio</a>
+                <a class="btn btn-outline-secondary col-3 offset-1" href="#contato">Contato</a>                            
             </div>
         </nav>        
     </header>
@@ -75,7 +36,17 @@
         <p class="espaco" id="portfolio">-</p>
         <section class="section portfolio">
             <h2>Portfólio</h2><hr>            
-            <div class="row row-cols-1 row-cols-md-3">
+            <div class="row row-cols-1 row-cols-md-4">
+
+                <div class="col mb-4">
+                    <div class="card">
+                        <a href="images/casadoscereais.png"><img src="images/casadoscereais.png" class="card-img-top"></a>
+                        <div class="card-body">
+                            <h5 class="card-title">Supermercado Casa dos Cereais</h5>
+                            <p class="card-text">Projeto desenvolvido em meu último emprego para melhorar a comunicação de falhas em um supermercado. O sistema contém possui relatórios e envio de e-mails aos diretores a cada ocorrência registrada. O sitema foi desenvolvido usando Django Framework</p>                            
+                        </div>
+                    </div>
+                </div>   
                 
                 <div class="col mb-4">
                     <div class="card">
@@ -132,46 +103,26 @@
                 <ul>
                     <li>
                         <a target="blank" href="https://github.com/Nathanbahia">
-                            <i class="fab fa-github-square"><span>  GitHub</span></i>
+                            <i class="fab fa-github-square"></i>GitHub
                         </a>
                     </li>
                     <li>
                         <a target="blank" href="https://linkedin.com/in/nathanbahia">
-                            <i class="fab fa-linkedin"><span>  LinkedIn</span></i>
+                            <i class="fab fa-linkedin"></i>LinkedIn
                         </a>
                     </li>
                     <li>
                         <a target="blank" href="https://instagram.com/onathanbahia">
-                            <i class="fab fa-instagram"><span>  Instagram</span></i>
+                            <i class="fab fa-instagram"></i>Instagram
                         </a>
                     </li>
                     <li>
-                        <i class="far fa-envelope"><span> nathanbabahia@gmail.com</span></i>
+                        <i class="far fa-envelope"></i>nathanbabahia@gmail.com
                     </li>
                 </ul>
-        </section>
-        
+        </section>        
     </main>
-    
-    <footer class="footer bg-dark">
-        <ul class="nav">
-            <li class="nav-item active">
-                <a class="nav-link" target="blank" href="https://github.com/Nathanbahia">
-                    <i class="fab fa-github-square"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" target="blank" href="https://linkedin.com/in/nathanbahia">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" target="blank" href="https://instagram.com/onathanbahia">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-        </ul>
-    </footer>
+
     
 </body>
 
