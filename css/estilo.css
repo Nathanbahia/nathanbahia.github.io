@@ -1,50 +1,59 @@
 body {
     background-color: #2E2E2E;
-    font-family: Courier New;
+    font-family: 'Oxygen', sans-serif;
 }
 
-h5 {
+h1, h3 {
     font-weight: bold;
+}
+
+h1 {
+	color: yellow;
 }
 
 main {
     margin-bottom: 90px;
 }
 
+.linkedin {
+	display: flex;
+	margin: auto;
+	width: 100%;
+	align-content: center;
+	justify-content: center;
+	text-align: left;
+}
+
 .jumbotron {
-    background-image: url(images/bg.jpg);            
-    background-size: cover;
-    background-position: right center;
-    padding: 3rem 1rem;           
-    text-align: center;        
+	background: #484848;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 0 !important;
 }
 
 .jumbotron .container {
     background-color: rgba(255, 255, 255, .7);
     padding: 10px;
     margin: 50px auto;
-    border-radius: 10px;    
-    color: #000; 
+    color: #000;
 }
 
 .jumbotron h1 {
-    margin-top: 2rem;       
+    margin-top: 2rem;
+    font-weight: bold;
 }
 
 .jumbotron p {
-    font-size: 1rem; 
-    font-weight: bold;
-    padding-top: .5rem;        
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding-top: .5rem;
 }
-
 
 .row {
     width: 100%;
     padding: 0;
     margin: 0;
 }
-
-
 
 
 /* MENU SUPERIOR */
@@ -57,6 +66,7 @@ main {
 .navbar a {
     padding: 0;
     width: 50px;
+    color: #fff;
 }
 
 
@@ -80,7 +90,7 @@ main {
 
 .contato li, .contato li a {
     font-size: 1rem;
-    color: #fff;        
+    color: #fff;
 }
 
 
@@ -88,7 +98,7 @@ main {
 
 
 
-/* DIVS USADAS NO SCROLL */ 
+/* DIVS USADAS NO SCROLL */
 
 .espaco {
     margin-bottom: 35px;
@@ -105,19 +115,20 @@ main {
 /* CARDS */
 
 .card {
-    box-shadow: 0 2px 5px #c0c0c0;
+    margin: 40px auto 40px auto;
+    border-radius: 0;
 }
 
 .card-body {
-    color: #000;
-    text-align: center;
+    color: #484848;
+    line-height: 2rem;
 }
 
 .card small a {
     color: #999;
     font-weight: bold;
     text-decoration: none;
-    font-size: 1rem;    
+    font-size: 1rem;
 }
 
 
