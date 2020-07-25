@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="src/css/prism.css">
+    <link rel="stylesheet" href="src/css/estilo.css">
+    <title>@NoobPythonBR</title>
+  </head>
+  <body>
+	
+	<header class='container-fluid'>
+		<img src='src/images/banner.jpg' id='banner'>
+		<ul class='navbar nav '>
+			<li><a target="blank" href="https://github.com/Nathanbahia"><i class="fab fa-github-square"></i></a></li>
+			<li><a target="blank" href="https://linkedin.com/in/nathanbahia"><i class="fab fa-linkedin"></i></a></li>
+			<li><a target="blank" href="https://instagram.com/noobpythonbr"><i class="fab fa-instagram"></i></a></li>
+		</ul>
+		<h1 class="myname">P-000 - Uma breve introdução à POO em Python</h1>
+		<a class="btn btn-outline-warning" href="https://github.com/Nathanbahia/noobpythonbr" target="_blank">Acesse o repositório no GitHub</a>
+	</header>
+	
+	<hr>
+	    <button class="btn btn-danger"><a href="index.html">Voltar à Página Inicial</a></button>
+	<hr>
+
+	<main class='container'>
+	    
+	    <div class="comment">
+	        <p>Vou direto ao ponto: POO não é tão difícil quanto parece, mas também não é algo simples. Sempre recomendo começar com exercícios mais simples e divertidos, porque assim, com o tempo os conceitos vão se concretizando em sua mente.</p>
+	        <p>Para iniciar as minhas postagens aqui, pensei em trazer um tipo de código que já postei dois vídeos lá na página, que é sobre um game de linha de comando que simula uma batalha entre guerreiros. Dei uma melhorada no código e adicionei a possibilidade de uso de magias pelos guerreiros. Outra mudança é que agora a batalha ocorre de forma automatizada.</p>
+	        <p>Esse exemplo é bom porque trabalha com o conceito de interação entre dois objetos, que nesse caso são da mesma classe.</p>
+	        <p>Qualquer dúvida sobre o funcionamento do código, podem me mandar uma mensagem no direct do Instagram que eu respondo todo mundo! :)</p>
+	    </div>
+	    
+    	<div class="codigo">
+        	<pre><code class="language-python">
+"""Começamos importando as bibliotecas necessárias para o projeto"""
+
+import os
+from time import sleep
+from random import randint, sample
+
+
+"""Iniciamos nossa classe com o uso da palavra class, é uma convenção nomear uma classe com a inicial em maiúscula.
+O método __init__ é chamado sempre que um objeto é criado, e nesse caso, nome é um parâmetro obrigatório para a criação
+do objeto. As demais propriedades já são pré-determinadas."""
+
+class Guerreiro:
+	def __init__(self, nome):
+		self.nome = nome
+		self.forca = randint(5, 10)
+		self.defesa = randint(3, 7)
+		self.vida = 10
+		self.mana = 3
+		
+		
+	"""
+	O método __str__ é usado para determinar como deve se parecer o objeto quando
+	este for impresso, como print(objeto), por exemplo.
+	"""
+		
+	def __str__(self):
+		return f'{self.nome:< 8} | Força: {str(self.forca):< 3} | Defesa: {str(self.defesa):< 3} | Vida: {str(self.vida):< 3} | Mana: {str(self.mana):< 3}'
+		
+		
+		
+	""" O método atacar recebe como parâmetro 'outro', que se refere a outro objeto da mesma classe e que será nosso defensor.
+	É realizada uma verificação de que nosso atacante possui força superior a defesa do outro, então calculamos a forca_do_ataque
+	baseada na diferença dessas duas propriedades.
+	"""
+
+	def atacar(self, outro):
+		if self.forca > outro.defesa:
+			forca_do_ataque = self.forca - outro.defesa
+			outro.vida -= forca_do_ataque
+			print(f'\n{self.nome} causa {forca_do_ataque} de danos em {outro.nome}\n')
+			
+		else:
+			print(f'\n{self.nome} não tem força suficiente para atacar {outro.nome}\n')
+			
+			
+	"""
+	Da mesma forma que o método 'atacar', o método usar_magia_ataque também recebe 'outro' como parâmetro.
+	É verificado se o atacante tem mana suficiente e então o valor de poder_da_magia é calculado aleatóriamente.
+	Da vida do defensor é subtraído esse valor. Caso o atacante não tenha mana, o ataque falha.
+	"""
+			
+	def usar_magia_ataque(self, outro):
+		if self.mana >= 1:
+			poder_da_magia = randint(1, 5)
+			outro.vida -= poder_da_magia
+			self.mana -= 1
+			print(f'\n{self.nome} causa {poder_da_magia} de danos usando magia em {outro.nome}\n')
+		
+		else:
+			print(f'\n{self.nome} tenta usar magia em {outro.nome}, mas falha\n')
+
+    
+	"""
+	Esse método verifica se o atacante tem mana suficiente e recupera uma quantidade de vida calculada
+	aleatóriamente.
+	"""
+    
+	def usar_magia_saude(self):
+		if self.mana >= 1:
+			vida_recuperada = randint(1, 5)
+			self.vida += vida_recuperada
+			self.mana -= 1
+			print(f'\n{self.nome} recupera {vida_recuperada} pontos de vida\n')
+		
+		else:
+			print(f'\n{self.nome} tenta usar magia para recuperar a saúde, mas falha\n')
+			
+
+
+			
+"""
+Já fora da classe, criamos 3 instâncias da classe Guerreiro, passando como parâmetro o nome de cada um.
+"""
+
+guerreiro1 = Guerreiro('Gandalf')
+guerreiro2 = Guerreiro('Aragorn')
+guerreiro3 = Guerreiro('Legolas')
+
+
+""" Adicionamos os guerreiros criados em uma lista """
+
+guerreiros  = [guerreiro1, guerreiro2, guerreiro3]
+
+
+"""
+Aqui própriamente dito é onde acontece nossa batalha, seguindo o seguinte esquema:
+
+1. É verificado o tamanho da lista guerreiros, se for maior que 1:
+
+    a. Limpamos a tela do console usando a função os.system('clear') - Linux - ou os.system('cls') - Windows.
+    
+    b. Imprimimos cada guerreiro da lista (o resultado desse printe é o que definimos em __str__)
+    
+    c. Usamos a função sample, para selecionar dois elementos da lista que não sejam repetidos e atribuimos
+		o primeiro elemento ao atacante e o segundo ao defensor
+		
+	d. Sorteamos um numero entre 0 e 9 para definir qual tipo de movimento o atacante vai realizar
+		- Se for menor que 5, o atacante usa o método atacar, recebendo o defensor como parâmetro
+		- Se for igual e 5 ou menor que 8, o atacante usa o método usar_magia_ataque, recebendo o defensor como parâmetro
+		- Se for maior que 8, o atacante usa o método usar_magia_saude não precisando receber nada como parâmetro
+		
+	e. Verificamos em cada elemento da lista se este possui vida > 0, caso contrário ele é removido
+	
+	f. Usamos sleep(1) para dar um intervalo de tempo entre um ataque e outro.
+	
+2. Caso a lista possua somente um elemento, é sinal de que a batalha terminou e há um vencedor.
+	O loop while é encerrado com o uso do break
+"""
+
+
+while True:
+	""" ( 1 ) """
+	if len(guerreiros) > 1:
+		
+		""" ( a ) """
+		try:
+			os.system('clear')
+		except:
+			os.system('cls')
+		
+		""" ( b ) """
+		[print(g) for g in guerreiros]
+			
+		""" ( c ) """
+		atacante, defensor = sample(guerreiros, 2)
+		
+		""" ( d ) """
+		tipo_de_movimento = randint(0, 10)
+		
+		if tipo_de_movimento < 5:
+			atacante.atacar(defensor)
+		
+		elif tipo_de_movimento < 8:
+			atacante.usar_magia_ataque(defensor)
+			
+		else:
+			atacante.usar_magia_saude()
+					
+		""" ( e ) """
+		for g in guerreiros:
+			if g.vida <= 0:
+				print(f'\n{g.nome} está morto\n')
+				del guerreiros[guerreiros.index(g)]
+						
+		""" ( f ) """
+		sleep(1)
+	
+		
+		""" ( 2 )"""
+	else:
+		
+		print(f'\n\nApós uma dura batalha, {guerreiros[0].nome} foi o vencedor!\n\n')
+		break
+	
+""" Esse input é apenas para o terminal não fechar após o break """
+
+input('Tecle ENTER para finalizar...')
+
+
+            </code></pre>
+        </div>
+    
+    
+	</main>
+	
+	<footer class="footer">
+	    <div class="container">
+	        <div>
+				<p id="assinatura">Nathan Bahia</p>
+				<p id="apresentacao">Administrador de Empresas, graduando em Análise e Desenvolvimento de Sistemas e terminando um MBA em Gestão Financeira. Sou apaixonado por tecnologia, podcasts, aprender coisas novas e desafios.</p>
+			</div>
+	        <ul class='navbar nav '>
+				<li><a target="blank" href="https://github.com/Nathanbahia"><i class="fab fa-github-square"></i></a></li>
+				<li><a target="blank" href="https://linkedin.com/in/nathanbahia"><i class="fab fa-linkedin"></i></a></li>
+				<li><a target="blank" href="https://instagram.com/noobpythonbr"><i class="fab fa-instagram"></i></a></li>
+			</ul>
+	    </div>
+	</footer>
+	
+    
+
+    <script src="src/js/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -54,6 +54,33 @@
 		font-weight: bold;
 	}
 	
+	main .video {
+	    max-width: 340px;
+	    margin: auto;
+	    text-align: center;
+	}
+	
+	main .card {
+	    max-width: 340px;
+	}
+	
+	main .card .card-img-top {
+	    max-width: 340px;
+	}
+	
+	main .card {
+	    color: #484848;
+	    text-decoration: none;
+	}
+	
+	main .card:hover {
+	    cursor; pointer;
+	}
+	
+	main .card .card-text {
+	    text-align: justify;
+	}
+	
 	@media screen and (min-width: 681px) {
 		main .card-group {
 			margin-bottom: 10px !important;
@@ -72,7 +99,10 @@
 	
 	.comment {
 	    background: #fff;
-	    padding: 20px 5px;
+	    padding: 20px;
+	    width: 90% !important;
+	    margin: auto;
+	    text-align: justify;
 	}
     		
 .footer {
@@ -85,11 +115,12 @@
 
 .footer #assinatura {
 	font-weight: bolder;
-	font-size: 1.3rem;
+	font-size: 1rem;
 }
 
 .footer #apresentacao {
 	text-align: justify;
+	font-size: .75rem;
 }
 
 .footer ul li a {
