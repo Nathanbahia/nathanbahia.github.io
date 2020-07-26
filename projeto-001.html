@@ -48,10 +48,10 @@ import sqlite3
 class Banco:
     def __init__(self):
         """
-        Todos os elementos criados dentro deste método são executados assim um objeto da classe
+        Todos os elementos criados dentro deste método são executados assim que um objeto da classe
         for instanciado
         
-        Inicia conexão com o banco de dados e cria tabela de usuários
+        Inicia a conexão com o banco de dados e cria a tabela de usuários
         
         Inicialização das propriedades da classe:
             self.conn: Conexão com o banco de dados 'users.bd' dentro da pasta database.
@@ -71,7 +71,7 @@ class Banco:
         Nome da tabela: users
         Campos:
             username (texto e não nulo)
-            senha (texto e não nulo)
+            password (texto e não nulo)
         """
         
         self.cursor.execute("""
@@ -82,8 +82,7 @@ class Banco:
         """)
         
         """
-        Sempre que uma alteração for feita dentro do banco deve-se usar
-        o método commit()
+        Sempre que uma alteração for feita no banco de dados, devemos usar o método commit() para salvar as alterações.
         """
         
         self.conn.commit()
@@ -93,10 +92,9 @@ class Banco:
         """ Insere no banco de dados um novo usuário com username e password
         
         Recebe dois parâmetros e os usa na sequência abaixo para inserir na
-        tabela users, nos campos username e password, os dois valores recebidos
-        e em seguida o self.conn.commit() é executado para salvar as alterações
-        feitas no banco. Por fim, retorna True se todo o processo for concluído
-        com exito.
+        tabela users, nos campos username e password. Em seguida o self.conn.commit() é
+		executado para salvar as alterações feitas no banco. Por fim, retorna True se 
+		todo o processo for concluído com exito.
         """
         
         self.cursor.execute(f"INSERT INTO users (username, password) VALUES ('{username}', '{password}')")
@@ -105,8 +103,8 @@ class Banco:
 
     def check_user(self, username, password):
         """
-        Realizando uma busca por todos os usuários no banco de dados,
-        é atribuído à variável users o retorno da pesquisa. Através do loop
+        Realiza uma busca por todos os usuários no banco de dados,
+        e atribui à variável users o retorno da pesquisa. Através do loop
         'for' cada 'u' assume a forma de uma tupla do seguinte modelo:
         
         ('noobpythonbr', 'minhasenha')
@@ -138,7 +136,7 @@ from tkinter import *
 from tkinter import font
 
 
-""" Criação de algunas contantes como fontes e cores """
+""" Criação de algunas constantes como fontes e cores """
 FONT_MD = "Courier 12 bold"
 FONT_SM = "Courier 10"
 BG = "#58D3F7"
@@ -148,26 +146,25 @@ FG = "#121212"
 """
 Criação da interface gráfica
 
-O método contrutor __init__ recebe como parâmetro um objeto Tk no momento
+O método construtor __init__ recebe como parâmetro um objeto Tk no momento
 de sua criação (veja no final do código), que neste caso estou usando um alias
-chamado master. Este é a 'janela' raiz onde serão colocados os demais elementos.
+chamado master. Esta é a 'janela' raiz onde serão colocados os demais elementos.
 """
         
 
 class App:
     def __init__(self, master):
-        """ Inicia a inteface gráfica do sistema
+        """ Inicia a interface gráfica do sistema
         
-        Todos os elementos criados dentro deste método são executados assim um objeto da classe
+        Todos os elementos criados dentro deste método são executados assim que um objeto da classe
         for instanciado
         """
         
         self.master = master
         
-        """ Configuração da cor do background """
+        """ Configuração da cor do background da janela principal"""
         self.master.configure(background=BG)
-        
-         
+                 
         """ Carregamento da imagem principal de tela de login """
         self.img_login = PhotoImage(file="images/login.png")
         
@@ -211,7 +208,7 @@ class App:
         self.btn_login = Button(self.master, text="Login", font=FONT_MD)
         
         """ Assim como na label do olho, este botão tem dois eventos, sendo o pressionamento
-        da tecla ENTER quando o botão estir com foco, ou o clique do mouse. Ambos eventos
+        da tecla ENTER quando o botão estiver com foco, ou o clique do mouse. Ambos eventos
         chamam o método self.login """
         self.btn_login.bind("<Return>", self.login)
         self.btn_login.bind("<Button-1>", self.login)
@@ -228,7 +225,7 @@ class App:
         self.lbl_signin.bind("<Button-1>", self.create_user)
         self.lbl_signin.place(x=0, y=270, w=270)
         
-        """ Criação de um objeto Font para que o texto possa ser formatado como sublinhado """
+        """ Criação de um objeto Font para que o texto possa ser formatado em sublinhado """
         f = font.Font(self.lbl_signin, self.lbl_signin.cget("font"))
         f.configure(underline=True)
         
@@ -236,7 +233,7 @@ class App:
         self.lbl_signin.configure(font=f)
 
         """ Essas propriedades são iniciadas vazias aqui porque precisam ser acessadas
-        e configuradasdentro dos métodos abaixo """
+        e configuradas dentro dos métodos abaixo """
         self.frame = Frame()
         self.ent_new_user = Entry()
         self.ent_new_pass = Entry()
@@ -245,8 +242,7 @@ class App:
     def show_password_login(self, event):
         """ A partir do clique na label do olho, exibe ou oculta a senha na tela de login e
         troca a imagem do olho
-        """
-        
+        """        
         if self.ent_pass_is_showing == False:
             self.img_eye = PhotoImage(file="images/ocultar.png")
             self.btn_eye["image"] = self.img_eye
@@ -262,7 +258,7 @@ class App:
                          
     def create_user(self, event):
         """ A parir do clique na label de criação de usuários um novo frame é criado
-        sobreposto ao frame master. Dentro deste novo frame (self.frame), alguns elementos são
+        sobreposto ao master. Dentro deste novo frame (self.frame), alguns elementos são
         criados e posicionados.
         """
          
@@ -299,7 +295,7 @@ class App:
         self.ent_new_pass = Entry(self.frame, show="*", font=FONT_MD)
         self.ent_new_pass.place(x = 10, y = 175, w=220)
 
-        """ Da mesma forma que ocorre na tela inicial, aqui também é criado uma label com imagem
+        """ Da mesma forma que ocorre na tela inicial, aqui também é criada uma label com imagem
         de olho, porém, que chama outro método, o self.show_password_create """
         self.img_eye_create = PhotoImage(file="images/exibir.png")
         self.btn_eye_create = Label(self.frame, image=self.img_eye_create, bg=BG)
@@ -377,8 +373,7 @@ class App:
 
     def create_main_content(self):
         """ Exibe o conteúdo da aplicação após o usuário realizar o login """
-        
-        
+                
         """ Criação de um novo frame sobreposto ao self.master """
         content = Frame(self.master, bg="#ffff00")
         content.place(x=0, y=0, w=270, h=300)
