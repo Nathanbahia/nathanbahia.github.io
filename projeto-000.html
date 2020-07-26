@@ -128,23 +128,23 @@ guerreiro3 = Guerreiro('Legolas')
 
 
 """ Adicionamos os guerreiros criados em uma lista """
-
+			
 guerreiros  = [guerreiro1, guerreiro2, guerreiro3]
 
 
 """
 Aqui própriamente dito é onde acontece nossa batalha, seguindo o seguinte esquema:
 
-1. É verificado o tamanho da lista guerreiros, se for maior que 1:
+1. É verificado o tamanho da lista guerreiros. Se for maior que 1:
 
     a. Limpamos a tela do console usando a função os.system('clear') - Linux - ou os.system('cls') - Windows.
     
-    b. Imprimimos cada guerreiro da lista (o resultado desse printe é o que definimos em __str__)
+    b. Imprimimos cada guerreiro da lista (o resultado desse print é o que definimos em __str__)
     
     c. Usamos a função sample, para selecionar dois elementos da lista que não sejam repetidos e atribuimos
 		o primeiro elemento ao atacante e o segundo ao defensor
 		
-	d. Sorteamos um numero entre 0 e 9 para definir qual tipo de movimento o atacante vai realizar
+	d. Sorteamos um número entre 0 e 9 para definir qual tipo de movimento o atacante vai realizar
 		- Se for menor que 5, o atacante usa o método atacar, recebendo o defensor como parâmetro
 		- Se for igual e 5 ou menor que 8, o atacante usa o método usar_magia_ataque, recebendo o defensor como parâmetro
 		- Se for maior que 8, o atacante usa o método usar_magia_saude não precisando receber nada como parâmetro
